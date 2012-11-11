@@ -15,6 +15,7 @@ namespace PersonnelApplication
         private string database;
         private string uid;
         private string password;
+        // test
 
         List<Person> people;
         List<Type> types;
