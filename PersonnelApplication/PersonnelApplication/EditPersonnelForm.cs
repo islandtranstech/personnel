@@ -11,6 +11,18 @@ namespace PersonnelApplication
 {
     public partial class EditPersonnelForm : Form
     {
+        int editId = -1;
+
+        public EditPersonnelForm(int id, string fname, string lname, DateTime dob)
+        {
+            InitializeComponent();
+
+            editId = id;
+            textBox1.Text = fname;
+            textBox2.Text = lname;
+            dateTimePicker1.Value = dob;
+
+        }
         public EditPersonnelForm()
         {
             InitializeComponent();
@@ -28,11 +40,17 @@ namespace PersonnelApplication
             string lname = textBox2.Text;
             DateTime dob = dateTimePicker1.Value;
 
-            // TODO: add in validation for person 
+            if (editId > 0)
+            {
+                Program.PeopleAdapter.UpdateQuery2(fname, lname, dob.ToString(), editId);
+            }
+            else
+            {
+                Program.PeopleAdapter.InsertQuery(fname, lname, dob.ToString());             
+            }
 
-            Person p = new Person(fname, lname, dob);
-            DataManager dm = Program.GetDataManager();
-            dm.SavePerson(p);
+            this.Hide();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -11,6 +11,17 @@ namespace PersonnelApplication
 {
     public partial class EditTypeForm : Form
     {
+        int editId = -1;
+
+        public EditTypeForm(int id, string name, string description, int renew)
+        {
+            InitializeComponent();
+            textBox1.Text = name;
+            textBox2.Text = renew.ToString();
+            textBox3.Text = description;
+            editId = id;
+        }
+
         public EditTypeForm()
         {
             InitializeComponent();
@@ -20,12 +31,23 @@ namespace PersonnelApplication
         private void button1_Click(object sender, EventArgs e)
         {
             string type = textBox1.Text;
-            DateTime expiration = dateTimePicker1.Value;
-            int renewal = Convert.ToInt32(textBox2.Text);
+            string renewString = textBox2.Text;
+            int renewal = 0;
+            if (renewString != null)
+            {
+                renewal = Convert.ToInt32(renewString);
+            }
             string description = textBox3.Text;
 
-            Type t = new Type(type, expiration, renewal, description);
-            Program.GetDataManager().SaveType(t);
+            if (editId > 0)
+            {
+                Program.TypesAdapter.UpdateQuery2(type, description, renewal, editId); 
+            }
+            else
+            {
+                Program.TypesAdapter.Insert(type, description, renewal);
+            }
+            this.Hide();
 
         }
     }

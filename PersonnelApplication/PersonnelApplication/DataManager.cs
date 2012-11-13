@@ -36,6 +36,14 @@ namespace PersonnelApplication
 
         public DataSet LoadContentData(string table, string searchQuery)
         {
+            if (table.Equals("Types"))
+            {
+                return Program.TypesAdapter.GetData().DataSet;
+            }
+            return Program.PeopleAdapter.GetData().DataSet;
+
+            Program.TypesAdapter.GetData();
+
             string query = "";
             string where = "";
             if (table.Equals("Types"))
@@ -144,10 +152,13 @@ namespace PersonnelApplication
 
         public DataSet GetAdapter()
         {
+            return new DataSet();
+            /*
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("select * from People", connection);
             DataSet DS = new DataSet();
             mySqlDataAdapter.Fill(DS);
             return DS;
+             */
             //dataGridView1.DataSource = DS.Tables[0];
         }
 
