@@ -43,6 +43,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.button4 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -50,7 +52,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(98, 24);
+            this.button1.Location = new System.Drawing.Point(1396, 288);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(311, 47);
             this.button1.TabIndex = 0;
@@ -60,9 +62,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(548, 24);
+            this.button2.Location = new System.Drawing.Point(1396, 374);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(295, 47);
+            this.button2.Size = new System.Drawing.Size(311, 47);
             this.button2.TabIndex = 1;
             this.button2.Text = "Add Record Type";
             this.button2.UseVisualStyleBackColor = true;
@@ -113,12 +115,12 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(496, 81);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 31);
+            this.textBox1.Size = new System.Drawing.Size(414, 31);
             this.textBox1.TabIndex = 6;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(742, 75);
+            this.button3.Location = new System.Drawing.Point(1008, 77);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 39);
             this.button3.TabIndex = 7;
@@ -132,10 +134,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(68, 94);
+            this.tabControl1.Location = new System.Drawing.Point(110, 254);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1300, 1048);
+            this.tabControl1.Size = new System.Drawing.Size(1180, 1020);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage1
@@ -149,7 +151,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1292, 1010);
+            this.tabPage1.Size = new System.Drawing.Size(1172, 982);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -159,7 +161,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1292, 1010);
+            this.tabPage2.Size = new System.Drawing.Size(1172, 982);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -169,7 +171,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1292, 1010);
+            this.tabPage3.Size = new System.Drawing.Size(1172, 982);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -181,24 +183,47 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1524, 254);
+            this.button4.Location = new System.Drawing.Point(1396, 552);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(201, 49);
+            this.button4.Size = new System.Drawing.Size(311, 49);
             this.button4.TabIndex = 10;
             this.button4.Text = "Manage Permits";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(114, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(867, 76);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "ITC Personnel Management";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1396, 464);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(311, 49);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Edit Selection";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // ApplicationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1974, 1743);
+            this.ClientSize = new System.Drawing.Size(1796, 1153);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "ApplicationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ApplicationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -206,6 +231,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -225,6 +251,8 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button5;
     }
 }
 

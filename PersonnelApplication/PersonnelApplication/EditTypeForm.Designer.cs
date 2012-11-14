@@ -35,6 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -48,9 +49,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(376, 130);
+            this.textBox1.Location = new System.Drawing.Point(371, 130);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 31);
+            this.textBox1.Size = new System.Drawing.Size(410, 31);
             this.textBox1.TabIndex = 1;
             // 
             // label3
@@ -66,7 +67,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(371, 202);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 31);
+            this.textBox2.Size = new System.Drawing.Size(410, 31);
             this.textBox2.TabIndex = 5;
             // 
             // label4
@@ -87,19 +88,30 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(192, 402);
+            this.button1.Location = new System.Drawing.Point(429, 402);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 68);
+            this.button1.Size = new System.Drawing.Size(135, 50);
             this.button1.TabIndex = 8;
             this.button1.Text = "Done";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(615, 402);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 50);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // EditTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 625);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
@@ -108,6 +120,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "EditTypeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Type";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,5 +136,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
