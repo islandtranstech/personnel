@@ -40,6 +40,12 @@ namespace PersonnelApplication
             string lname = textBox2.Text;
             DateTime dob = dateTimePicker1.Value;
 
+            if (string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || dob == null)
+            {
+                MessageBox.Show("Error: Data fields cannot be left blank.");
+                return;
+            }
+
             if (editId > 0)
             {
                 Program.PeopleAdapter.UpdateQuery2(fname, lname, dob.ToString(), editId);

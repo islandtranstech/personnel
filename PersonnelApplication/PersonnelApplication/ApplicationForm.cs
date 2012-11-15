@@ -15,14 +15,12 @@ namespace PersonnelApplication
         {
             InitializeComponent();
             tabControl1.TabPages[0].Text = "Explore";
-            tabControl1.TabPages[1].Text = "Enter";
-            tabControl1.TabPages[2].Text = "Report";
+            tabControl1.TabPages[1].Text = "Report";
             this.Size = new Size(940, 760);
             button4.Enabled = false;
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dataGridView1.BackgroundColor = Color.White;
-            //dataGridView1.DataSource = Program.GetDataManager().GetAdapter().Tables[0];
-
+            LoadData();
+            comboBox1.SelectedIndex = 1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,7 +85,7 @@ namespace PersonnelApplication
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void LoadData()
         {
             string value = comboBox1.Text;
             string query = textBox1.Text;
@@ -95,25 +93,39 @@ namespace PersonnelApplication
             {
                 query = null;
             }
+            else
+            {
+                query = "%" + query + "%";
+            }
             if (value.Equals("Types"))
             {
-                dataGridView1.DataSource = Program.TypesAdapter.GetData();
+                if (query == null)
+                {
+                    dataGridView1.DataSource = Program.TypesAdapter.GetData();
+                }
+                else
+                {
+                    dataGridView1.DataSource = Program.TypesAdapter.GetDataWithQuery(query);
+                }
                 this.dataGridView1.Columns[1].HeaderText = "Type";
                 this.dataGridView1.Columns[2].HeaderText = "Description";
                 this.dataGridView1.Columns[3].HeaderText = "Renewal";
             }
             else
             {
-                dataGridView1.DataSource = Program.PeopleAdapter.GetData();
+                if (query == null)
+                {
+                    dataGridView1.DataSource = Program.PeopleAdapter.GetData();
+                }
+                else
+                {
+                    dataGridView1.DataSource = Program.PeopleAdapter.GetDataWithQuery(query);
+                }
                 this.dataGridView1.Columns[1].HeaderText = "First Name";
                 this.dataGridView1.Columns[2].HeaderText = "Last Name";
                 this.dataGridView1.Columns[3].HeaderText = "Date of Birth";
             }
             this.dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Invalidate();
-
-
-
 
             string table = comboBox1.Text;
             if (table.Equals("Types"))
@@ -126,9 +138,15 @@ namespace PersonnelApplication
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadData(); 
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
-            int index = (int)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+            int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            int index = (int)dataGridView1.Rows[rowIndex].Cells["id"].Value;
             PersonnelEdit pe = new PersonnelEdit(index);
             pe.Show(); 
         }
@@ -141,6 +159,11 @@ namespace PersonnelApplication
                 return;
             }
             EditRecord(dataGridView1.SelectedCells[0].RowIndex);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
     }

@@ -15,7 +15,6 @@ namespace PersonnelApplication
         int Pid;
         public PersonnelEdit(int pid)
         {
-            pid = 2;
             PersonnelDataSet.PeopleDataTable person = Program.PeopleAdapter.GetPersonById(pid);
             InitializeComponent();
             this.Size = new Size(600, 600);
@@ -50,6 +49,29 @@ namespace PersonnelApplication
         private void button2_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void EditSelected(int rowIndex)
+        {
+            int id = (int)dataGridView1.Rows[rowIndex].Cells["id"].Value;
+            int pid = (int)dataGridView1.Rows[rowIndex].Cells["pid"].Value;
+            int tid = (int)dataGridView1.Rows[rowIndex].Cells["tid"].Value;
+            string value = (string)dataGridView1.Rows[rowIndex].Cells["value"].Value;
+            string name = (string)dataGridView1.Rows[rowIndex].Cells["name"].Value;
+            DateTime expiration = (DateTime)dataGridView1.Rows[rowIndex].Cells["expiration"].Value;
+            EditPersonTypeForm eptf = new EditPersonTypeForm(id, pid, tid, value, expiration, name);
+            eptf.Show();
+
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count < 1)
+            {
+                MessageBox.Show("Error: No values selected.");
+                return;
+            }
+            EditSelected(dataGridView1.SelectedCells[0].RowIndex);
+
         }
     }
 }

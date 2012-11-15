@@ -32,6 +32,11 @@ namespace PersonnelApplication
         {
             string type = textBox1.Text;
             string renewString = textBox2.Text;
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(textBox3.Text))
+            {
+                MessageBox.Show("Error: Must data fields cannot be left blank.");
+                return;
+            }
             int renewal = 0;
             if (renewString != null)
             {
