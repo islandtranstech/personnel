@@ -21,6 +21,8 @@ namespace PersonnelApplication
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             LoadData();
             comboBox1.SelectedIndex = 1;
+            // don't want to enable deleting right now
+            button7.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -164,6 +166,41 @@ namespace PersonnelApplication
         private void button6_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (!(MessageBox.Show("Are you sure you want to delete this record?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes))
+            {
+                return;
+            }
+            if (dataGridView1.SelectedCells.Count < 1)
+            {
+                MessageBox.Show("Error: No values selected.");
+                return;
+            }
+            int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            // remove the type record
+            if (comboBox1.Text.Equals("Types"))
+            {
+                int id = (int)dataGridView1.Rows[rowIndex].Cells["id"].Value;
+                Program.TypesAdapter.DeleteQueryById(id);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = saveFileDialog1.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = saveFileDialog1.FileName;
+                textBox3.Text = file;
+            }
         }
 
     }

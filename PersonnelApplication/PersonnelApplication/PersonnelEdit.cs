@@ -20,10 +20,17 @@ namespace PersonnelApplication
             this.Size = new Size(600, 600);
             label1.Text = person.Rows[0]["fname"].ToString();
             label2.Text = person.Rows[0]["lname"].ToString();
-            label4.Text = person.Rows[0]["dob"].ToString();
+            DateTime dob = (DateTime) person.Rows[0]["dob"];
+            label4.Text = dob.ToString("d");
             Pid = pid;
             LoadData();
-            
+            this.dataGridView1.Columns[0].Visible = false;
+            this.dataGridView1.Columns[1].Visible = false;
+            this.dataGridView1.Columns[2].Visible = false;
+            this.dataGridView1.Columns[3].HeaderText = "Value";
+            this.dataGridView1.Columns[4].HeaderText = "Expiration Date";
+            this.dataGridView1.Columns[5].HeaderText = "Permit Type";
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.Size = new Size(600, 600);
         }
 
@@ -73,5 +80,30 @@ namespace PersonnelApplication
             EditSelected(dataGridView1.SelectedCells[0].RowIndex);
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Error: You must have exactly one row selected.");
+                return;
+            }
+
+            if (!(MessageBox.Show("Are you sure you want to delete this record?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes))
+            {
+                return;
+            }
+            int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            try
+            {
+                int id = (int)dataGridView1.Rows[rowIndex].Cells["id"].Value;
+                Program.PeopleTypesAdapter.DeleteQuery(id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Unable to delete selected record, please check your selection.");
+            }
+
+       }
     }
 }

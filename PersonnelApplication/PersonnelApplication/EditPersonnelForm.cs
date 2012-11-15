@@ -26,6 +26,7 @@ namespace PersonnelApplication
         public EditPersonnelForm()
         {
             InitializeComponent();
+            dateTimePicker1.Value = DateTime.Now.AddYears(-42).Date;
         }
 
         private void label1_Click(object sender, EventArgs e)
